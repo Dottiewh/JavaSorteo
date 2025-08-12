@@ -42,6 +42,7 @@ public class Principal extends javax.swing.JFrame {
         txtCantidadGanadores = new javax.swing.JTextField();
         btnSortear = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JButton();
+        boxBisiesto = new javax.swing.JCheckBox();
         jPanel2 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -93,6 +94,8 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        boxBisiesto.setText("¿Es un año bisiesto?");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -118,7 +121,9 @@ public class Principal extends javax.swing.JFrame {
                             .addComponent(btnSortear, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(boxBisiesto))))
                 .addContainerGap(132, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -136,7 +141,9 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(txtCantidadGanadores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnSortear, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(134, 134, 134)
+                .addGap(18, 18, 18)
+                .addComponent(boxBisiesto)
+                .addGap(96, 96, 96)
                 .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -270,7 +277,8 @@ public class Principal extends javax.swing.JFrame {
         
         //Rango máximo del sorteo
         if(mes_n==2)  {//febrero 28 días
-                maxDia="28";
+                if(boxBisiesto.isSelected()==false)maxDia="28";
+                else maxDia="29";
            }
         else if(mes_n==11||mes_n==4||mes_n==6||mes_n==9) {//abril, junio, sept, nov - 30 días
             maxDia="30";
@@ -371,6 +379,7 @@ public class Principal extends javax.swing.JFrame {
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox boxBisiesto;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnSortear;
     private javax.swing.JComboBox<String> cmbMes;
